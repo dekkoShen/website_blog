@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8" />
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width" />
+
+	<title>blogblogblog...blog</title>
+
+	<meta name="keywords" content="photo, photography, photographer, Taiwan, dekko, dekko shen"/>
+	<meta name="description" content="dekko碎碎念..."/>
+	<meta name="author" content="dekko Shen"/>
+	<link rel="shortcut icon" href="images/icon_ball_64.png"/>
+
+	<link rel="stylesheet" href="http://blog.dekkoshen.com/theme/css/normalize.css" />
+	<link rel="stylesheet" href="http://blog.dekkoshen.com/theme/css/foundation.min.css" />
+	<link rel="stylesheet" href="http://blog.dekkoshen.com/theme/css/style.css" />
+	<link rel="stylesheet" href="http://blog.dekkoshen.com/theme/css/pygments.css" />	
+	<script src="http://blog.dekkoshen.com/theme/js/modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+	<div class="large-9 large-centered columns">
+		<h1><a href="http://blog.dekkoshen.com">blogblogblog...blog</a></h1>
+	</div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+	<ul class="button-group navigation">
+
+	</ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+	<!-- Main Blog Content -->
+	<div class="large-9 columns">
+        
+        
+
+            <article>
+                <a href="http://blog.dekkoshen.com/20150220_buildPelicanBlog.html"><h3 class="article-title">架pelican blog小記</h3></a>
+<h6 class="subheader" title="2015-02-20T22:00:00+08:00">2015-02-20, 周五
+</h6>
+
+
+<p>架一個pelican blog最重要的就是會用google就行啦~<br />
+當然是簡單的那種，跟這裡一樣!! 基本上我是用windows來架，感覺會比其他的作業系統複雜一點，但我也沒比較過=___=，不是太困難啦~有點耐心就行了。</p>
+<p>google一下就有看不完的資料啦!! 譬如說:  </p>
+<blockquote>
+<p><a href="http://pelican.readthedocs.org/en/latest/index.html">官方的文件</a><br />
+<a href="http://www.circuidipity.com/pelican.html">Build a blog using the Pelican static site generator</a><br />
+<a href="http://www.circuidipity.com/github-pages.html">Host a blog on GitHub Pages</a><br />
+<a href="http://farseerfc.me/try-pelican.html">嘗試一下 Pelican</a><br />
+<a href="http://potatola.github.io/setup-pelican-github.html">Github pages和Pelican搭建靜態博客</a><br />
+<a href="http://duncanlock.net/blog/2013/05/17/how-i-built-this-website-using-pelican-part-1-setup/">How I built this website, using Pelican</a>  </p>
+</blockquote>
+<p>他們都說了相當清楚，結束!!</p>
+<p>...但為了練習一下markdown怎麼用，所以來稍微打一下。我的環境是windows 7還有Python 3.4。在github上頭架一個pelican部落格大致分做以下步驟:<br />
+1.  <a href="#20150220_python">安裝python：跑pelican用的</a><br />
+2.  <a href="#20150220_pelican">安裝及設定pelican：組合html、css用的</a><br />
+3.  <a href="#20150220_article">開始寫撰寫blog：輸出及測試</a><br />
+4.  <a href="#20150220_theme">美化一下blog：設定基本資料及主題外觀</a><br />
+5.  <a href="#20150220_github">將blog發佈到github上(<em>請先參考別人的方法！這裡我碰到困難，是用別種方法上傳...</em>)</a></p>
+<hr />
+<h4><a name="20150220_python"></a>1.安裝python</h4>
+<p>先到<a href="https://www.python.org">python的官網</a>下載囉~裏頭有分做3.4跟2.7兩種版本。這兩個版本有些指令並不相容，詳情請google，我也不清楚所以就直接安裝了3.4版。接著要來設定windows指令的路徑，不然電腦不知道python的指令放哪裡，請參考此篇<a href="http://pydoing.blogspot.tw/2010/11/python-pathset.html">Python於MS-Windows的命令列路徑設定</a>。<br />
+(很多網站都強烈建議要安裝virtualenv，為了不要讓不同的函數庫互相衝突用的，但我沒有用他寫些甚麼，所以也就沒裝了。以後再來用吧...)</p>
+<hr />
+<h4><a name="20150220_pelican"></a>2.安裝及設定pelican</h4>
+<h5>2.1 安裝pelican:</h5>
+<p><a href="http://pelican-cn.readthedocs.org/en/latest/quickstart.html">pelican說明文件</a>其實已經寫得蠻清楚的，打開windows指令列，然後輸入以下就行啦!!!</p>
+<div class="highlight"><pre>pip install pelican markdown
+</pre></div>
+
+
+<p>當然沒這麼美好= =，一堆套件都沒安裝好，但錯誤指令的最後一行會告訴你缺哪個套件，譬如缺XXXX套件，就在指令列打上</p>
+<div class="highlight"><pre>pip install XXXX
+</pre></div>
+
+
+<p>他就會幫你自動安裝了，大概有十個左右吧~耐心地把它裝完。但我記得有一個套件名稱跟他所說缺的指令名稱不同，好像多了一個python-的前綴字...我忘了，但google知道。</p>
+<h5>2.2 設定pelican project:</h5>
+<p>在指令列<code>cd</code>到你想要放pelican blog的地方，然後輸入</p>
+<div class="highlight"><pre>pelican-quickstart
+</pre></div>
+
+
+<p>他會囉哩八說地問一堆問題，回答完就大功告成啦~~<br />
+(如果有缺甚麼套件一樣<code>pip install XXXX</code>安裝。)</p>
+<hr />
+<h4><a name="20150220_article"></a>3.開始撰寫blog</h4>
+<h5>3.1 簡單的第一篇:</h5>
+<p>此時你的資料夾裡面會有一叫做"content"的資料夾，這個地方就是要擺文章的地方。之前的一堆問題他會問你要用哪一個格式發表文章，我是選擇用markdown。這個格式非常簡單，跟一般text打起來差不多，花個十分鐘把<a href="http://markdown.tw/">這個</a>看完，接下來練習打一篇(就是現在這一篇)就差不多了。接下來在這個"content"資料夾新增一個檔案，比方說"firstTime.md"，這就是一篇blog！裡面可以打</p>
+<div class="highlight"><pre><span class="n">Title</span><span class="o">:</span> <span class="err">嗨</span><span class="o">~~</span><span class="err">第一篇</span>
+<span class="n">Date</span><span class="o">:</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">14</span> <span class="mi">00</span><span class="o">:</span><span class="mi">00</span>
+<span class="n">Authors</span><span class="o">:</span> <span class="err">三重金城武</span>
+
+<span class="err">今天是情人節</span><span class="o">~</span><span class="err">我學會用大嘴鳥部落格。真幸福</span><span class="o">~~~</span>
+</pre></div>
+
+
+<p>接下來就開始用pelican把上頭的文章轉換成html、css囉~在指令列裏頭輸入</p>
+<div class="highlight"><pre>pelican content
+</pre></div>
+
+
+<p>他會把輸出的網頁會放在"output"的資料夾裡。 </p>
+<h5>3.2 預覽一下:</h5>
+<p>接下來我們稍微預覽一下這個blog長甚麼樣子@@，在<a href="http://pelican-cn.readthedocs.org/en/latest/quickstart.html">官方文件的quickstart</a>中是說指令列移至"output"的資料夾，輸入<code>python -m SimpleHTTPServer</code>。不過若你是灌python3.4，這個指令已經換名字啦!這個sever一點都不simple，所以換成</p>
+<div class="highlight"><pre>python -m http.server
+</pre></div>
+
+
+<p>接著打開你的瀏覽器輸入 http://localhost:8000/ 就可以看到blog的誕生啦!!!恭喜恭喜~<br />
+但這個指令會讓你沒辦法編輯，因為指令視窗被拿去顯示伺服器的資料了...<br />
+其實可以寫一個python的<a href="https://dl.dropboxusercontent.com/u/14624624/website_tools/0_HTTPsever.py">小程式</a>丟在output的資料夾裡面，要預覽時點開他還可以繼續編輯，這樣方便多了。</p>
+<hr />
+<h4><a name="20150220_theme"></a>4.簡單的美化一下</h4>
+<h5>4.1 設定一下blog的基本資料:</h5>
+<p>這個blog的基本設定都會放在"pelicanconf.py"這個檔案裏，所以用你喜歡的文字編輯器打開他。以我的設定為例，可以看到<a name="20150220_SITEURL"></a></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<span class="c"># -*- coding: utf-8 -*- #</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
+
+<span class="c">#網站的基本資料，如同字面所述</span>
+<span class="c">#其中的SITEURL，若沒有自己的domain先不要設，</span>
+<span class="c">#後頭要設成github repository的發佈網址</span>
+<span class="n">AUTHOR</span>       <span class="o">=</span> <span class="s">&#39;dekko Shen&#39;</span>
+<span class="n">SITENAME</span>     <span class="o">=</span> <span class="s">&quot;blogblogblog...blog&quot;</span>
+<span class="n">SITEURL</span>      <span class="o">=</span> <span class="s">&#39;http://blog.dekkoshen.com&#39;</span> 
+<span class="n">DEFAULT_LANG</span> <span class="o">=</span> <span class="s">&#39;zh&#39;</span>
+<span class="n">TIMEZONE</span>     <span class="o">=</span> <span class="s">&#39;Asia/Taipei&#39;</span>
+<span class="n">DATE_FORMATS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;en&#39;</span><span class="p">:(</span><span class="s">&#39;usa&#39;</span><span class="p">,</span><span class="s">&#39;%a, </span><span class="si">%d</span><span class="s"> %b %Y&#39;</span><span class="p">),</span>
+    <span class="s">&#39;zh&#39;</span><span class="p">:(</span><span class="s">&#39;chs&#39;</span><span class="p">,</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">, %a&#39;</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="c">#連結的資料夾</span>
+<span class="n">PATH</span>         <span class="o">=</span> <span class="s">&#39;content&#39;</span>     <span class="c">#放文章的資料夾名稱</span>
+<span class="n">STATIC_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;images&#39;</span><span class="p">]</span>    <span class="c">#內部連結的資料夾名稱，要放在content裡</span>
+
+<span class="c"># 每篇文章的網址設定，&#39;slug&#39;是待會要設在文章裡面的標籤，會作為網頁名稱</span>
+<span class="n">ARTICLE_SAVE_AS</span> <span class="o">=</span> <span class="s">&#39;{slug}.html&#39;</span>
+<span class="n">ARTICLE_URL</span>     <span class="o">=</span> <span class="s">&#39;{slug}.html&#39;</span>
+
+<span class="c">#要選擇哪一個外觀主題</span>
+<span class="n">THEME</span> <span class="o">=</span> <span class="s">&quot;./myPelicanTheme/basic/&quot;</span>
+<span class="n">DEFAULT_PAGINATION</span> <span class="o">=</span> <span class="mi">10</span>         <span class="c">#一頁要放幾篇文章</span>
+
+<span class="c"># 設定feed的地方</span>
+<span class="n">FEED_DOMAIN</span>           <span class="o">=</span> <span class="bp">None</span>
+<span class="n">FEED_ALL_ATOM</span>         <span class="o">=</span> <span class="bp">None</span>
+<span class="n">FEED_ATOM</span>             <span class="o">=</span> <span class="bp">None</span>
+<span class="n">CATEGORY_FEED_ATOM</span>    <span class="o">=</span> <span class="bp">None</span>
+<span class="n">TRANSLATION_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">AUTHOR_FEED_ATOM</span>      <span class="o">=</span> <span class="bp">None</span>
+<span class="n">AUTHOR_FEED_RSS</span>       <span class="o">=</span> <span class="bp">None</span>
+
+<span class="c"># Blogroll</span>
+<span class="n">LINKS</span> <span class="o">=</span> <span class="p">(</span>
+         <span class="p">(</span><span class="s">&#39;我的攝影網站&#39;</span><span class="p">,</span> <span class="s">&#39;http://dekkoShen.com&#39;</span><span class="p">),</span>
+         <span class="p">)</span>
+
+<span class="c"># Social widget</span>
+<span class="n">SOCIAL</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;facebook&#39;</span><span class="p">,</span> <span class="s">&#39;https://www.facebook.com/dekko.shen&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s">&#39;instagram&#39;</span><span class="p">,</span> <span class="s">&#39;http://instagram.com/dekkoshen/&#39;</span><span class="p">),</span>
+          <span class="p">)</span>
+
+<span class="n">DISQUS_SITENAME</span>  <span class="o">=</span> <span class="s">&#39;dekkosblogblogblog&#39;</span>  <span class="c">#DISQUS留言板的代號</span>
+
+<span class="c"># 如果要用python http.server測試，最好先將他 uncomment起來，</span>
+<span class="c"># 不然一按其他的連結會自動跳成上面所設定的&#39;SITEURL&#39;</span>
+<span class="c">#RELATIVE_URLS = True</span>
+</pre></div>
+</td></tr></table>
+
+<p>關於其他的設定可以參考<a href="http://pelican.readthedocs.org/en/latest/settings.html">官方文件的Settings</a>，有相當多啊！</p>
+<h5>4.2 文章的基本設定:</h5>
+<p>因為我是選擇用markdown的格式，如果要寫一篇blog，我會新增一個檔案'fileName.md'到'content'的資料夾裡。這個檔案會像這種格式</p>
+<div class="highlight"><pre><span class="n">Title</span><span class="o">:</span> <span class="err">這可是另一篇</span>
+<span class="n">Date</span><span class="o">:</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">14</span> <span class="mi">23</span><span class="o">:</span><span class="mi">59</span>
+<span class="n">Slug</span><span class="o">:</span> <span class="mi">20150214</span><span class="n">_moon</span>
+<span class="n">Category</span><span class="o">:</span> <span class="err">有的沒的</span>
+<span class="n">Tags</span><span class="o">:</span> <span class="err">心情</span>
+<span class="n">Authors</span><span class="o">:</span> <span class="err">三重金城武</span>
+<span class="n">Summary</span><span class="o">:</span> <span class="err">今日情人</span>
+
+<span class="err">巧克力怎麼不溶我手啊啊啊</span><span class="o">!!!!!</span>
+</pre></div>
+
+
+<p>前面那堆metadata的功用就如同字面所述，而<code>Slug</code>就是在設定這篇blog的網址名稱，所以他看起來會像是"http://www.XXXX.com/20150214_moon.html"。注意喔！<em>這個slug必須是唯一的</em>，不然若兩篇文章是同一個slug會不知道要選哪一篇(我也沒試過)。</p>
+<h5>4.3 選擇一個主題吧:</h5>
+<p>接下來就要來美化blog的頁面啦!剛裝好的pelican只有兩個主題可以選，他們會放在<code>Python34/Lib/site-packages/pelican/themes</code>裡面，不過看起來不怎麼樣啊！但我也不會製作theme，所以只好抓別人的來改一改，嘿嘿嘿。pelican的github<a href="https://github.com/getpelican/pelican-themes">裡面</a>提供了許多的theme可以選擇，右邊有個<a href="https://github.com/getpelican/pelican-themes/archive/master.zip">"download zip"</a>可以先把他們全部抓下來，而從<a href="http://pelicanthemes.com/">這裡</a>可以預覽一下剛剛那些theme大概長甚麼樣子。選擇好theme，就把這個資料夾的位置設定在"pelicanconf.py"中"THEME"裡面就大功告成啦!</p>
+<p>這時候可以把blog用<code>pelican content</code>輸出看看，但有可能會出現這樣的錯誤訊息</p>
+<div class="highlight"><pre><span class="n">CRITICAL</span><span class="o">:</span> <span class="n">unorderable</span> <span class="n">types</span><span class="o">:</span> <span class="n">Article</span><span class="o">()</span> <span class="o">&lt;</span> <span class="n">Article</span><span class="o">()</span>
+</pre></div>
+
+
+<p>應該是有些theme的templates有誤。可以打開theme資料夾中的"tags.html"，裡面會有類似的一段程式</p>
+<div class="highlight"><pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;square&quot;</span><span class="nt">&gt;</span>
+    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">article</span> <span class="k">in</span> <span class="nv">articles</span><span class="o">|</span><span class="nf">sort</span> <span class="cp">%}</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">SITEURL</span> <span class="cp">}}</span><span class="s">/</span><span class="cp">{{</span> <span class="nv">article.url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span><span class="cp">{{</span> <span class="nv">article.title</span> <span class="cp">}}</span><span class="nt">&lt;/li&gt;</span>
+    <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre></div>
+
+
+<p>將裡面的<code>sort</code>刪掉變成<code>{% for article in articles %}</code>，應該就可以了。</p>
+<hr />
+<h4><a name="20150220_github"></a>5.發佈在github上頭</h4>
+<h5>5.1 安裝git及申請github帳號:</h5>
+<p>git是版本控制系統，<a href="https://github.com/">github</a>則是分享git計畫的網路平台，可以把東西丟在上頭，不過要用git去控制才行。而擺在github上面的東西必須要公開，不然就要收錢啦！這很適合拿來架靜態的網站，反正本來就是要公開的東西...</p>
+<p>先申請一個github帳號，但因要用github就必須要安裝git，不過很簡單，<a href="https://github.com/">github</a>網站已經有提供在windows的控制軟體，他會自動幫你安裝好git了。</p>
+<h5>5.2 準備發佈:</h5>
+<p><em><b>這裡請先參考別人作法！像這篇<a href="http://potatola.github.io/setup-pelican-github.html">Github pages和Pelican搭建靜態博客</a>。</b></em></p>
+<p>因為我沒辦法順利執行這個指令</p>
+<div class="highlight"><pre><span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="o">-</span><span class="n">b</span> <span class="n">master</span> <span class="o">-</span><span class="n">p</span> <span class="n">output</span>
+</pre></div>
+
+
+<p>會出現這樣的錯誤訊：息<code>TypeError: Type str doesn't support the buffer API</code><br />
+目前我查不出來該怎麼處理，不知是不是python3.4的問題？所以我先用別種方法來上傳blog，以後再來研究哪裡出錯好了...  </p>
+<p>我的方法麻煩很多，首先將指令列移動到<em><b>"output"的資料夾</b></em>，然後打上</p>
+<div class="highlight"><pre>git init
+</pre></div>
+
+
+<p>此時會多一個".git"的隱藏資料夾，用來儲存不同版本的差異。因為現在是在master的分支上，如果要在github上發佈網頁必須要在"gh-pages"的分支，所以我們要切過去</p>
+<div class="highlight"><pre>git checkout -b gh-pages
+</pre></div>
+
+
+<p>這時候指令列的位置後面應該會寫著<code>(gh-pages)</code>。接下來我們要把這個資料夾的東西包裝成一個新的版本(commit)，準備要發佈到github上頭。步驟如下:</p>
+<div class="highlight"><pre>git add -A
+git commit -m &quot;你的註解&quot;
+</pre></div>
+
+
+<p>第一行<code>git add -A</code>是把所有的資料都丟到包裝區；第二行的<code>git commit</code>則是把包裝區的東西包成一個新版本放到repository裡面。它的結構像是</p>
+<p><img alt="git structure" src="https://lh3.googleusercontent.com/-2j1LUMMibNM/VOhDbtwBwhI/AAAAAAAAVUU/BCoj_yrbVe4/w500-h173-no/123.png" /></p>
+<p>因為最終的目的是要上傳到github，所以我們先到github開一個新的repository。但注意，要是你沒有自己的domain，這個repository名稱將會決定最後這個blog的網址喔~會是這個樣子  </p>
+<div class="highlight"><pre>http://userName.github.io/repositoryName
+</pre></div>
+
+
+<p><em>注意，若沒有自己的domain，要將<a href="#20150220_SITEURL">pelicanconf.py中的SITEURL</a>修改成上述的網址。</em>建立好以後，應該會看到一個連線網址 https://github.com/userName/repositoryName.git，我們要用它來跟本機做連線，所以先做名叫"origin"的一個遙控器</p>
+<div class="highlight"><pre>git remote add origin https://github.com/userName/repositoryName.git
+</pre></div>
+
+
+<p>現在就可以來發布我們的部落格啦！只要打上</p>
+<div class="highlight"><pre>git push origin gh-pages
+</pre></div>
+
+
+<p>就大功告成了！可以到http://userName.github.io/repositoryName看看是否有看到自己的blog。</p>
+<h5>5.3 之後的發佈流程:</h5>
+<ol>
+<li>
+<p>編輯文章，然後執行</p>
+<div class="highlight"><pre>pelican content/
+</pre></div>
+
+
+<p>輸出到"output"的資料夾，再預覽及修改。</p>
+</li>
+<li>
+<p>修改完後，將指令列移至"output"的資料夾，依序輸入</p>
+<div class="highlight"><pre>git add -A
+git commit -m &quot;你的註解&quot;
+git push origin gh-pages
+</pre></div>
+
+
+<p>即可發佈。上述流程以圖解就像是</p>
+<p><img alt="git_structure" src="https://lh3.googleusercontent.com/-u4tV04Smc0E/VOhap1uIs0I/AAAAAAAAVUo/IT8Grtuj1v4/w550-h204-no/git_structure.png" /></p>
+</li>
+</ol>
+<p>但我的方法比別人麻煩了好幾步=___= 以後再來研究那個錯誤是啥...</p><p class="subheader">分類: <a href="http://blog.dekkoshen.com/category/cheng-shi.html">程式</a>
+
+    標籤: 
+    <a href="http://blog.dekkoshen.com/tag-pelican.html">#pelican </a>
+    <a href="http://blog.dekkoshen.com/tag-github.html">#github </a>
+</p>
+
+
+
+<p><a href="http://blog.dekkoshen.com/20150220_buildPelicanBlog.html#disqus_thread">你的評論</a></p>            </article>
+
+
+                <hr  class="gradient"/>
+
+
+        
+
+
+            <article>
+                <a href="http://blog.dekkoshen.com/20150219_first.html"><h3 class="article-title">嗨~~第一篇</h3></a>
+<h6 class="subheader" title="2015-02-19T22:00:00+08:00">2015-02-19, 周四
+</h6>
+
+
+<p>嗯嗯嗯...第一篇!!!恭喜恭喜~</p><p class="subheader">分類: <a href="http://blog.dekkoshen.com/category/sheng-huo-ji-shi.html">生活記事</a>
+
+    標籤: 
+    <a href="http://blog.dekkoshen.com/tag-zhao-pian.html">#照片 </a>
+</p>
+
+
+
+<p><a href="http://blog.dekkoshen.com/20150219_first.html#disqus_thread">你的評論</a></p>                <a class="button radius secondary small right" href="http://blog.dekkoshen.com/20150219_first.html">展開此頁</a>
+                <hr  class="gradient"/>
+            </article>
+
+            <!-- /#posts-list -->
+<div class="pagination-centered">
+<h6 class="subheader"> 第 1 / 1 頁 </h6>
+
+<p>
+
+</p>
+</div>
+
+	</div>
+	<!-- End Main Content -->
+
+	<!-- Sidebar -->
+	<aside class="large-3 columns">
+		<h5 class="sidebar-title">關於這裡...</h5>
+		<ul class="side-nav">
+			<li><a href="http://blog.dekkoshen.com/archives.html">按日期</a>
+			<li><a href="http://blog.dekkoshen.com/tags.html">按標籤</a>
+		</ul>
+
+		
+		<h5 class="sidebar-title">分類一下</h5>
+		<ul class="side-nav">
+			<li><a href="http://blog.dekkoshen.com/category/cheng-shi.html">程式</a></li>
+			<li><a href="http://blog.dekkoshen.com/category/sheng-huo-ji-shi.html">生活記事</a></li>
+   
+		</ul>
+
+		<h5 class="sidebar-title">一些連結</h5>
+		<ul class="side-nav">
+			<li><a href="http://dekkoShen.com" target="_blank">我的攝影網站</a></li>
+		</ul>
+		
+		<h5 class="sidebar-title">聯絡方式</h5>
+		<ul class="side-nav">
+			<li><a href="https://www.facebook.com/dekko.shen"  target="_blank">facebook</a></li>
+			<li><a href="http://instagram.com/dekkoshen/"  target="_blank">instagram</a></li>
+			<li><a href="mailto:dekko.shen@gmail.com"  target="_blank">email</a></li>
+		</ul>
+
+	</aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+	<div class="large-12 columns">
+		<!--<hr />-->
+		<div class="row">
+			<div class="large-6 columns">
+				<p> <br/> </p>
+				<!-- <p>blogblogblog...blog by dekko Shen</p> -->
+			</div>
+		</div>
+	</div>
+</footer>
+</body>
+</html>
