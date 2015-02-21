@@ -272,7 +272,12 @@
 </pre></div>
 
 
-<p>將裡面的<code>sort</code>刪掉變成<code>{% for article in articles %}</code>，應該就可以了。</p>
+<p>將裡面的<code>sort</code>刪掉變成<code>{% for article in articles %}</code>，應該就可以了。如果不行試著把cache清掉</p>
+<div class="highlight"><pre>pelican --ignore-cache content/
+</pre></div>
+
+
+<p>再跑一次試試看。</p>
 <hr />
 <h4><a name="20150220_github"></a>5.發佈在github上頭</h4>
 <h5>5.1 安裝git及申請github帳號:</h5>
@@ -344,7 +349,7 @@ git push origin gh-pages
 </li>
 </ol>
 <p>但我的方法比別人麻煩了好幾步=___= 以後再來研究那個錯誤是啥...</p>
-<p class="subheader">分類: <a href="http://blog.dekkoshen.com/category/cheng-shi.html">程式</a>
+<p class="subheader">分類: <a href="http://blog.dekkoshen.com/category-cheng-shi.html">程式</a>
 
     標籤: 
     <a href="http://blog.dekkoshen.com/tag-pelican.html">#pelican </a>
@@ -378,13 +383,14 @@ git push origin gh-pages
 		<ul class="side-nav">
 			<li><a href="http://blog.dekkoshen.com/archives.html">按日期</a>
 			<li><a href="http://blog.dekkoshen.com/tags.html">按標籤</a>
+			<li><a href="http://feeds.dekkoshen.com/dekko_feeds/atom_blog.xml" rel="alternate">Atom feed</a></li>
 		</ul>
 
 		
 		<h5 class="sidebar-title">分類一下</h5>
 		<ul class="side-nav">
-			<li><a href="http://blog.dekkoshen.com/category/cheng-shi.html">程式</a></li>
-			<li><a href="http://blog.dekkoshen.com/category/sheng-huo-ji-shi.html">生活記事</a></li>
+			<li><a href="http://blog.dekkoshen.com/category-cheng-shi.html">程式</a></li>
+			<li><a href="http://blog.dekkoshen.com/category-sheng-huo-ji-shi.html">生活記事</a></li>
    
 		</ul>
 

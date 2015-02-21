@@ -214,7 +214,12 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;將裡面的&lt;code&gt;sort&lt;/code&gt;刪掉變成&lt;code&gt;{% for article in articles %}&lt;/code&gt;，應該就可以了。&lt;/p&gt;
+&lt;p&gt;將裡面的&lt;code&gt;sort&lt;/code&gt;刪掉變成&lt;code&gt;{% for article in articles %}&lt;/code&gt;，應該就可以了。如果不行試著把cache清掉&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pelican --ignore-cache content/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;再跑一次試試看。&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h4&gt;&lt;a name="20150220_github"&gt;&lt;/a&gt;5.發佈在github上頭&lt;/h4&gt;
 &lt;h5&gt;5.1 安裝git及申請github帳號:&lt;/h5&gt;
