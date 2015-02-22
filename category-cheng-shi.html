@@ -76,30 +76,29 @@
 5.  <a href="#20150220_github">將blog發佈到github上(<em>請先參考別人的方法！這裡我碰到困難，是用別種方法上傳...</em>)</a></p>
 <hr />
 <h4><a name="20150220_python"></a>1.安裝python</h4>
-<p>先到<a href="https://www.python.org">python的官網</a>下載囉~裏頭有分做3.4跟2.7兩種版本。這兩個版本有些指令並不相容，詳情請google，我也不清楚所以就直接安裝了3.4版。接著要來設定windows指令的路徑，不然電腦不知道python的指令放哪裡，請參考此篇<a href="http://pydoing.blogspot.tw/2010/11/python-pathset.html">Python於MS-Windows的命令列路徑設定</a>。<br />
-(很多網站都強烈建議要安裝virtualenv，為了不要讓不同的函數庫互相衝突用的，但我沒有用他寫些甚麼，所以也就沒裝了。以後再來用吧...)</p>
+<p>先到<a href="https://www.python.org">python的官網</a>下載囉~裏頭有分做3.4跟2.7兩種版本。這兩個版本有些指令並不相容，詳情請google，我也不清楚所以就直接安裝了3.4版。接著要來設定windows指令的路徑，不然電腦不知道python的指令放哪裡，請參考此篇<a href="http://pydoing.blogspot.tw/2010/11/python-pathset.html">Python於MS-Windows的命令列路徑設定</a>。  </p>
+<p>另外建議安裝virtualenv，為了不要讓不同的函數庫互相衝突用的。安裝也很簡單，輸入這行即可</p>
+<div class="highlight"><pre>pip install virtualenv
+</pre></div>
+
+
+<p>至於如何使用，可以參考一下<a href="http://www.openfoundry.org/tw/tech-column/8516-pythons-virtual-environment-and-multi-version-programming-tools-virtualenv-and-pythonbrew">這個</a>。</p>
 <hr />
 <h4><a name="20150220_pelican"></a>2.安裝及設定pelican</h4>
 <h5>2.1 安裝pelican:</h5>
-<p><a href="http://pelican-cn.readthedocs.org/en/latest/quickstart.html">pelican說明文件</a>其實已經寫得蠻清楚的，打開windows指令列，然後輸入以下就行啦!!!</p>
+<p><a href="http://pelican-cn.readthedocs.org/en/latest/quickstart.html">pelican說明文件</a>其實已經寫得蠻清楚的，打開windows指令列然後輸入以下，結束!!!</p>
 <div class="highlight"><pre>pip install pelican markdown
 </pre></div>
 
 
-<p>當然沒這麼美好= =，一堆套件都沒安裝好，但錯誤指令的最後一行會告訴你缺哪個套件，譬如缺XXXX套件，就在指令列打上</p>
-<div class="highlight"><pre>pip install XXXX
-</pre></div>
-
-
-<p>他就會幫你自動安裝了，大概有十個左右吧~耐心地把它裝完。但我記得有一個套件名稱跟他所說缺的指令名稱不同，好像多了一個python-的前綴字...我忘了，但google知道。</p>
 <h5>2.2 設定pelican project:</h5>
-<p>在指令列<code>cd</code>到你想要放pelican blog的地方，然後輸入</p>
+<p>在指令列移動到你想要放pelican blog的地方，然後輸入</p>
 <div class="highlight"><pre>pelican-quickstart
 </pre></div>
 
 
 <p>他會囉哩八說地問一堆問題，回答完就大功告成啦~~<br />
-(如果有缺甚麼套件一樣<code>pip install XXXX</code>安裝。)</p>
+(如果有缺甚麼套件就使用<code>pip install XXXX</code>安裝。)</p>
 <hr />
 <h4><a name="20150220_article"></a>3.開始撰寫blog</h4>
 <h5>3.1 簡單的第一篇:</h5>
@@ -119,7 +118,7 @@
 
 <p>他會把輸出的網頁會放在"output"的資料夾裡。 </p>
 <h5>3.2 預覽一下:</h5>
-<p>接下來我們稍微預覽一下這個blog長甚麼樣子@@，在<a href="http://pelican-cn.readthedocs.org/en/latest/quickstart.html">官方文件的quickstart</a>中是說指令列移至"output"的資料夾，輸入<code>python -m SimpleHTTPServer</code>。不過若你是灌python3.4，這個指令已經換名字啦!這個sever一點都不simple，所以換成</p>
+<p>接下來我們稍微預覽一下這個blog長甚麼樣子@@，在<a href="http://pelican-cn.readthedocs.org/en/latest/quickstart.html">官方文件的quickstart</a>中是說指令列移至"output"的資料夾，輸入<code>python -m SimpleHTTPServer</code>。不過你若是灌python3.4，請換另一個不simple的server~~</p>
 <div class="highlight"><pre>python -m http.server
 </pre></div>
 

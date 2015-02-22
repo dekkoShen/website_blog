@@ -19,30 +19,29 @@
 5.  &lt;a href="#20150220_github"&gt;將blog發佈到github上(&lt;em&gt;請先參考別人的方法！這裡我碰到困難，是用別種方法上傳...&lt;/em&gt;)&lt;/a&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h4&gt;&lt;a name="20150220_python"&gt;&lt;/a&gt;1.安裝python&lt;/h4&gt;
-&lt;p&gt;先到&lt;a href="https://www.python.org"&gt;python的官網&lt;/a&gt;下載囉~裏頭有分做3.4跟2.7兩種版本。這兩個版本有些指令並不相容，詳情請google，我也不清楚所以就直接安裝了3.4版。接著要來設定windows指令的路徑，不然電腦不知道python的指令放哪裡，請參考此篇&lt;a href="http://pydoing.blogspot.tw/2010/11/python-pathset.html"&gt;Python於MS-Windows的命令列路徑設定&lt;/a&gt;。&lt;br /&gt;
-(很多網站都強烈建議要安裝virtualenv，為了不要讓不同的函數庫互相衝突用的，但我沒有用他寫些甚麼，所以也就沒裝了。以後再來用吧...)&lt;/p&gt;
+&lt;p&gt;先到&lt;a href="https://www.python.org"&gt;python的官網&lt;/a&gt;下載囉~裏頭有分做3.4跟2.7兩種版本。這兩個版本有些指令並不相容，詳情請google，我也不清楚所以就直接安裝了3.4版。接著要來設定windows指令的路徑，不然電腦不知道python的指令放哪裡，請參考此篇&lt;a href="http://pydoing.blogspot.tw/2010/11/python-pathset.html"&gt;Python於MS-Windows的命令列路徑設定&lt;/a&gt;。  &lt;/p&gt;
+&lt;p&gt;另外建議安裝virtualenv，為了不要讓不同的函數庫互相衝突用的。安裝也很簡單，輸入這行即可&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pip install virtualenv
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;至於如何使用，可以參考一下&lt;a href="http://www.openfoundry.org/tw/tech-column/8516-pythons-virtual-environment-and-multi-version-programming-tools-virtualenv-and-pythonbrew"&gt;這個&lt;/a&gt;。&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h4&gt;&lt;a name="20150220_pelican"&gt;&lt;/a&gt;2.安裝及設定pelican&lt;/h4&gt;
 &lt;h5&gt;2.1 安裝pelican:&lt;/h5&gt;
-&lt;p&gt;&lt;a href="http://pelican-cn.readthedocs.org/en/latest/quickstart.html"&gt;pelican說明文件&lt;/a&gt;其實已經寫得蠻清楚的，打開windows指令列，然後輸入以下就行啦!!!&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://pelican-cn.readthedocs.org/en/latest/quickstart.html"&gt;pelican說明文件&lt;/a&gt;其實已經寫得蠻清楚的，打開windows指令列然後輸入以下，結束!!!&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;pip install pelican markdown
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;當然沒這麼美好= =，一堆套件都沒安裝好，但錯誤指令的最後一行會告訴你缺哪個套件，譬如缺XXXX套件，就在指令列打上&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;pip install XXXX
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;他就會幫你自動安裝了，大概有十個左右吧~耐心地把它裝完。但我記得有一個套件名稱跟他所說缺的指令名稱不同，好像多了一個python-的前綴字...我忘了，但google知道。&lt;/p&gt;
 &lt;h5&gt;2.2 設定pelican project:&lt;/h5&gt;
-&lt;p&gt;在指令列&lt;code&gt;cd&lt;/code&gt;到你想要放pelican blog的地方，然後輸入&lt;/p&gt;
+&lt;p&gt;在指令列移動到你想要放pelican blog的地方，然後輸入&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;pelican-quickstart
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;他會囉哩八說地問一堆問題，回答完就大功告成啦~~&lt;br /&gt;
-(如果有缺甚麼套件一樣&lt;code&gt;pip install XXXX&lt;/code&gt;安裝。)&lt;/p&gt;
+(如果有缺甚麼套件就使用&lt;code&gt;pip install XXXX&lt;/code&gt;安裝。)&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h4&gt;&lt;a name="20150220_article"&gt;&lt;/a&gt;3.開始撰寫blog&lt;/h4&gt;
 &lt;h5&gt;3.1 簡單的第一篇:&lt;/h5&gt;
@@ -62,7 +61,7 @@
 
 &lt;p&gt;他會把輸出的網頁會放在"output"的資料夾裡。 &lt;/p&gt;
 &lt;h5&gt;3.2 預覽一下:&lt;/h5&gt;
-&lt;p&gt;接下來我們稍微預覽一下這個blog長甚麼樣子@@，在&lt;a href="http://pelican-cn.readthedocs.org/en/latest/quickstart.html"&gt;官方文件的quickstart&lt;/a&gt;中是說指令列移至"output"的資料夾，輸入&lt;code&gt;python -m SimpleHTTPServer&lt;/code&gt;。不過若你是灌python3.4，這個指令已經換名字啦!這個sever一點都不simple，所以換成&lt;/p&gt;
+&lt;p&gt;接下來我們稍微預覽一下這個blog長甚麼樣子@@，在&lt;a href="http://pelican-cn.readthedocs.org/en/latest/quickstart.html"&gt;官方文件的quickstart&lt;/a&gt;中是說指令列移至"output"的資料夾，輸入&lt;code&gt;python -m SimpleHTTPServer&lt;/code&gt;。不過你若是灌python3.4，請換另一個不simple的server~~&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;python -m http.server
 &lt;/pre&gt;&lt;/div&gt;
 
