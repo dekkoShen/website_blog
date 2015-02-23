@@ -1,5 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>blogblogblog...blog</title><link href="http://blog.dekkoshen.com/" rel="alternate"></link><link href="http://feeds.dekkoshen.com/dekko_feeds/atom_blog.xml" rel="self"></link><id>http://blog.dekkoshen.com/</id><updated>2015-02-20T22:00:00+08:00</updated><entry><title>架pelican blog小記</title><link href="http://blog.dekkoshen.com/20150220_buildPelicanBlog.html" rel="alternate"></link><updated>2015-02-20T22:00:00+08:00</updated><author><name>dekko Shen</name></author><id>tag:blog.dekkoshen.com,2015-02-20:20150220_buildPelicanBlog.html</id><summary type="html">&lt;p&gt;架一個pelican blog最重要的就是會用google就行啦~&lt;br /&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>blogblogblog...blog</title><link href="http://blog.dekkoshen.com/" rel="alternate"></link><link href="http://feeds.dekkoshen.com/dekko_feeds/atom_blog.xml" rel="self"></link><id>http://blog.dekkoshen.com/</id><updated>2015-02-23T22:00:00+08:00</updated><entry><title>在windows下設定簡單的python編寫環境</title><link href="http://blog.dekkoshen.com/20150223_pythonSetup.html" rel="alternate"></link><updated>2015-02-23T10:00:00+08:00</updated><author><name>dekko Shen</name></author><id>tag:blog.dekkoshen.com,2015-02-23:20150223_pythonSetup.html</id><summary type="html">&lt;p&gt;大致可分作兩部分，安裝軟體還有設定python的虛擬環境。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h4&gt;1.安裝軟體&lt;/h4&gt;
+&lt;p&gt;主要要安裝兩個軟體，第一個當然就是Python，另一個則是編輯器。&lt;br /&gt;
+Python的安裝很簡單，到&lt;a href="https://www.python.org"&gt;他的官網&lt;/a&gt;下載即可。裏頭有分做3.4跟2.7兩種版本，因為我是初學的，就直接選最新的來裝@@。接著來設定python指令的路徑，不然電腦不知道python放哪裡，可以參考此篇&lt;a href="http://pydoing.blogspot.tw/2010/11/python-pathset.html"&gt;&lt;em&gt;"Python於MS-Windows的命令列路徑設定"&lt;/em&gt;&lt;/a&gt;。至於編輯器就隨人喜好，有很多可以選像notepad++、sublime、atom還是windows記事本也行(最好不要...)。&lt;a href="http://notepad-plus-plus.org/zh/"&gt;notepad++&lt;/a&gt;是自由軟體免費又好用，而且作者還是台灣人~~現在最多人推薦&lt;a href="http://www.sublimetext.com/"&gt;sublime&lt;/a&gt;，介面相當漂亮，這個要70美元，但也是可以一直"試用"啦...他偶爾會跳出購買視窗來。都不另外裝也是可以，因為安裝python他也有附一個。&lt;/p&gt;
+&lt;p&gt;我是裝了sublime，在這裡編輯python，只要按&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ctrl + b
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;就會自動執行編譯相當方便，他都幫你設定好了。但是"強制停止"則需要自己另外設定，打開sublime上頭"Preferences"的"Key Bindings-User"，加入一行&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;{&amp;quot;keys&amp;quot;: [&amp;quot;ctrl+shift+c&amp;quot;], &amp;quot;command&amp;quot;: &amp;quot;exec&amp;quot;, &amp;quot;args&amp;quot;: {&amp;quot;kill&amp;quot;: true} }
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在執行python時，按&lt;code&gt;ctrl+shift+c&lt;/code&gt;就即可強制停止。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h4&gt;2.設定Python的虛擬環境：virtualenv&lt;/h4&gt;
+&lt;p&gt;不同的函數庫有可能會互相干擾，所以建議要設定虛擬環境，讓不同計畫使用不同的函數庫環境。只是我不確定干擾的情況很常發生嗎？是因為定義的名稱相同所造成的？現在我還不清楚。&lt;br /&gt;
+在網路上看到的虛擬環境有好幾種，像&lt;a href="https://virtualenv-chinese-docs.readthedocs.org/en/latest/"&gt;virtualenv&lt;/a&gt;、&lt;a href="http://virtualenvwrapper.readthedocs.org/en/latest/index.html#"&gt;virtualenvwrapper&lt;/a&gt;、&lt;a href="http://pythonbrew.readthedocs.org/en/latest/"&gt;pythonbrew&lt;/a&gt;等，其中pythonbrew對windows並不支援。virtualenv只有對單一虛擬環境的管理，譬如創造虛擬環境、進入、退出等，但並沒有對多個不同環境的整合管理，這要virtualenvwrapper才辦得到。一開始我試著裝裝看virtualenvwrapper，但還未成功，最後只先裝了virtualenv...對virtualenvwrapper有興趣可以看看這篇&lt;a href="http://www.asyndetic.com/2012/05/01/virtualenvwrapper-is-for-windows-users-too/"&gt;&lt;em&gt;"virtualenvwrapper is for Windows users too"&lt;/em&gt;&lt;/a&gt;的安裝教學。底下virtualenv的使用說明，主要是參考這篇&lt;a href="http://www.openfoundry.org/tw/tech-column/8516-pythons-virtual-environment-and-multi-version-programming-tools-virtualenv-and-pythonbrew"&gt;&lt;em&gt;"Python的虛擬環境及多版本開發利器"&lt;/em&gt;&lt;/a&gt;學的。&lt;/p&gt;
+&lt;h5&gt;2.1 安裝virtualenv&lt;/h5&gt;
+&lt;p&gt;安裝python3時，他已經幫你安裝好了pip。所以接下來要安裝virtualenv，只需輸入&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pip install virtualenv
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;即可安裝完畢。&lt;/p&gt;
+&lt;h5&gt;2.2 建立虛擬環境&lt;/h5&gt;
+&lt;p&gt;因為virtualenv不知道所有虛擬環境的分別位置，所以我是把他們集中在某個資料夾中來集中管理。接下來就來建個虛擬環境試試看，將指令列移動到欲管理的資料夾，輸入&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;virtualenv 環境名稱
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;這樣就完成了。但如果我希望所有pip套件都必須在虛擬環境下安裝，則可在使用者資料夾中的".bashrc"，裡面多加一行&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;export PIP_REQUIRE_VIRTUALENV=true
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;避免弄亂原始的python環境。&lt;/p&gt;
+&lt;h5&gt;2.3 進入及退出虛擬環境&lt;/h5&gt;
+&lt;p&gt;剛建立好環境後，他並不會自動進入，必須在指令列輸入此行才會進入&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;source 到環境資料夾的路徑/環境資料夾/Scripts/activate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;假設我建立了"ENV_pelican"環境，如果成功進入的話，他會在每次的輸出後顯示"(ENV_pelican)"，這裡我是使用git bash。至於退出就比較簡單了，輸入&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;deactivate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;即可回到原始python環境。&lt;/p&gt;
+&lt;p&gt;但如果不是在指令列的環境想要使用某個虛擬環境，可以在py檔裡面加上這段(適用於python3)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;activate_this = r&amp;#39;C:\到環境資料夾的路徑\Scripts\activate_this.py&amp;#39;
+exec(compile(open(activate_this, &amp;quot;rb&amp;quot;).read(), activate_this, &amp;#39;exec&amp;#39;), dict(__file__=activate_this))
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;執行時就會自動載入了。&lt;/p&gt;</summary><category term="python"></category><category term="virtualenv"></category></entry><entry><title>架pelican blog小記</title><link href="http://blog.dekkoshen.com/20150220_buildPelicanBlog.html" rel="alternate"></link><updated>2015-02-23T22:00:00+08:00</updated><author><name>dekko Shen</name></author><id>tag:blog.dekkoshen.com,2015-02-20:20150220_buildPelicanBlog.html</id><summary type="html">&lt;p&gt;架一個pelican blog最重要的就是會用google就行啦~&lt;br /&gt;
 當然是簡單的那種，跟這裡一樣!! 基本上我是用windows來架，感覺會比其他的作業系統複雜一點，但我也沒比較過=___=，不是太困難啦~有點耐心就行了。&lt;/p&gt;
 &lt;p&gt;google一下就有看不完的資料啦!! 譬如說:  &lt;/p&gt;
 &lt;blockquote&gt;
@@ -19,13 +76,8 @@
 5.  &lt;a href="#20150220_github"&gt;將blog發佈到github上(&lt;em&gt;請先參考別人的方法！這裡我碰到困難，是用別種方法上傳...&lt;/em&gt;)&lt;/a&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h4&gt;&lt;a name="20150220_python"&gt;&lt;/a&gt;1.安裝python&lt;/h4&gt;
-&lt;p&gt;先到&lt;a href="https://www.python.org"&gt;python的官網&lt;/a&gt;下載囉~裏頭有分做3.4跟2.7兩種版本。這兩個版本有些指令並不相容，詳情請google，我也不清楚所以就直接安裝了3.4版。接著要來設定windows指令的路徑，不然電腦不知道python的指令放哪裡，請參考此篇&lt;a href="http://pydoing.blogspot.tw/2010/11/python-pathset.html"&gt;Python於MS-Windows的命令列路徑設定&lt;/a&gt;。  &lt;/p&gt;
-&lt;p&gt;另外建議安裝virtualenv，為了不要讓不同的函數庫互相衝突用的。安裝也很簡單，輸入這行即可&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;pip install virtualenv
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;至於如何使用，可以參考一下&lt;a href="http://www.openfoundry.org/tw/tech-column/8516-pythons-virtual-environment-and-multi-version-programming-tools-virtualenv-and-pythonbrew"&gt;這個&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;先到&lt;a href="https://www.python.org"&gt;python的官網&lt;/a&gt;下載囉~裏頭有分做3.4跟2.7兩種版本。這兩個版本有些指令並不相容，詳情請google，我也不是很清楚所以就直接安裝了3.4版。接著要來設定python指令的路徑，不然電腦不知道python放哪裡，請參考此篇&lt;a href="http://pydoing.blogspot.tw/2010/11/python-pathset.html"&gt;&lt;em&gt;"Python於MS-Windows的命令列路徑設定"&lt;/em&gt;&lt;/a&gt;。另外建議安裝virtualenv，為了不要讓不同的函數庫互相衝突。&lt;/p&gt;
+&lt;p&gt;詳細一點可以看我這篇&lt;a href="http://blog.dekkoshen.com/20150223_pythonSetup.html"&gt;&lt;em&gt;"在windows下設定簡單的python編寫環境"&lt;/em&gt;&lt;/a&gt;的設定。&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h4&gt;&lt;a name="20150220_pelican"&gt;&lt;/a&gt;2.安裝及設定pelican&lt;/h4&gt;
 &lt;h5&gt;2.1 安裝pelican:&lt;/h5&gt;
@@ -224,7 +276,7 @@
 &lt;p&gt;git是版本控制系統，&lt;a href="https://github.com/"&gt;github&lt;/a&gt;則是分享git計畫的網路平台，可以把東西丟在上頭，不過要用git去控制才行。而擺在github上面的東西必須要公開，不然就要收錢啦！這很適合拿來架靜態的網站，反正本來就是要公開的東西...&lt;/p&gt;
 &lt;p&gt;先申請一個github帳號，但因要用github就必須要安裝git，不過很簡單，&lt;a href="https://github.com/"&gt;github&lt;/a&gt;網站已經有提供在windows的控制軟體，他會自動幫你安裝好git了。&lt;/p&gt;
 &lt;h5&gt;5.2 準備發佈:&lt;/h5&gt;
-&lt;p&gt;&lt;em&gt;&lt;b&gt;這裡請先參考別人作法！像這篇&lt;a href="http://potatola.github.io/setup-pelican-github.html"&gt;Github pages和Pelican搭建靜態博客&lt;/a&gt;。&lt;/b&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;b&gt;這裡請先參考別人作法！像這篇&lt;a href="http://potatola.github.io/setup-pelican-github.html"&gt;&lt;em&gt;"Github pages和Pelican搭建靜態博客"&lt;/em&gt;&lt;/a&gt;。&lt;/b&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;因為我沒辦法順利執行這個指令&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ghp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;

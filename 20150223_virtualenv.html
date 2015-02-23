@@ -4,7 +4,7 @@
 	<!-- Set the viewport width to device width for mobile -->
 	<meta name="viewport" content="width=device-width" />
 
-	<title>blogblogblog...blog - 程式</title>
+	<title>在windows下設定簡單的python編寫環境</title>
 
 	<meta name="keywords" content="photo, photography, photographer, Taiwan, dekko, dekko shen"/>
 	<meta name="description" content="dekko碎碎念..."/>
@@ -47,20 +47,22 @@
 
 	<!-- Main Blog Content -->
 	<div class="large-9 columns">
-        
-        
+<article>
+    <header>
+        <h3 class="article-title"><a href="http://blog.dekkoshen.com/20150223_virtualenv.html" rel="bookmark"
+        title="Permalink to 在windows下設定簡單的python編寫環境">在windows下設定簡單的python編寫環境</a></h3>
+    </header>
 
-            <article>
-                <a href="http://blog.dekkoshen.com/20150223_pythonSetup.html"><h3 class="article-title">在windows下設定簡單的python編寫環境</h3></a>
 <h6 class="subheader" title="2015-02-23T10:00:00+08:00">2015-02-23, 周一
 </h6>
 
 
-<p>大致可分作兩部分，安裝軟體還有設定python的虛擬環境。</p>
+    <p>大致可分作兩部分，安裝軟體還有設定python的虛擬環境。</p>
 <hr />
 <h4>1.安裝軟體</h4>
 <p>主要要安裝兩個軟體，第一個當然就是Python，另一個則是編輯器。<br />
-Python的安裝很簡單，到<a href="https://www.python.org">他的官網</a>下載即可。裏頭有分做3.4跟2.7兩種版本，因為我是初學的，就直接選最新的來裝@@。接著來設定python指令的路徑，不然電腦不知道python放哪裡，可以參考此篇<a href="http://pydoing.blogspot.tw/2010/11/python-pathset.html"><em>"Python於MS-Windows的命令列路徑設定"</em></a>。至於編輯器就隨人喜好，有很多可以選像notepad++、sublime、atom還是windows記事本也行(最好不要...)。<a href="http://notepad-plus-plus.org/zh/">notepad++</a>是自由軟體免費又好用，而且作者還是台灣人~~現在最多人推薦<a href="http://www.sublimetext.com/">sublime</a>，介面相當漂亮，這個要70美元，但也是可以一直"試用"啦...他偶爾會跳出購買視窗來。都不另外裝也是可以，因為安裝python他也有附一個。</p>
+Python的安裝很簡單，到<a href="https://www.python.org">他的官網</a>下載即可。裏頭有分做3.4跟2.7兩種版本，因為我是初學的，就直接選最新的來裝@@。接著來設定python指令的路徑，不然電腦不知道python放哪裡，可以參考此篇<a href="http://pydoing.blogspot.tw/2010/11/python-pathset.html"><em>"Python於MS-Windows的命令列路徑設定"</em></a>。<br />
+至於編輯器就隨人喜好，有很多可以選像notepad++、sublime、atom還是windows記事本也行(最好不要...)。<a href="http://notepad-plus-plus.org/zh/">notepad++</a>是自由軟體免費又好用，而且作者還是台灣人~~現在最多人推薦<a href="http://www.sublimetext.com/">sublime</a>，介面相當漂亮，這個要70美元，但也是可以一直"試用"啦...他偶爾會跳出購買視窗來。都不另外裝也是可以，因為安裝python他也有附一個。</p>
 <p>我是裝了sublime，在這裡編輯python，只要按</p>
 <div class="highlight"><pre>ctrl + b
 </pre></div>
@@ -113,52 +115,31 @@ exec(compile(open(activate_this, &quot;rb&quot;).read(), activate_this, &#39;exe
 </pre></div>
 
 
-<p>執行時就會自動載入了。</p><p class="subheader">分類: <a href="http://blog.dekkoshen.com/category-cheng-shi.html">程式</a>
+<p>就會自動載入了。</p>
+<p class="subheader">分類: <a href="http://blog.dekkoshen.com/category-cheng-shi.html">程式</a>
 
     標籤: 
     <a href="http://blog.dekkoshen.com/tag-python.html">#python </a>
-    <a href="http://blog.dekkoshen.com/tag-virtualenv.html">#virtualenv </a>
 </p>
 
 
 
-<p><a href="http://blog.dekkoshen.com/20150223_pythonSetup.html#disqus_thread">你的評論</a></p>            </article>
 
+	<h4>Comments</h4>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'dekkosblogblogblog'
+        var disqus_identifier = "20150223_virtualenv.html";
+        var disqus_url = "http://blog.dekkoshen.com/20150223_virtualenv.html";
 
-                <hr  class="gradient"/>
-
-
-        
-
-
-            <article>
-                <a href="http://blog.dekkoshen.com/20150220_buildPelicanBlog.html"><h3 class="article-title">架pelican blog小記</h3></a>
-<h6 class="subheader" title="2015-02-20T22:00:00+08:00">2015-02-20, 周五
-</h6>
-
-
-<p>簡單架一個pelican部落格</p><p class="subheader">分類: <a href="http://blog.dekkoshen.com/category-cheng-shi.html">程式</a>
-
-    標籤: 
-    <a href="http://blog.dekkoshen.com/tag-pelican.html">#pelican </a>
-    <a href="http://blog.dekkoshen.com/tag-github.html">#github </a>
-</p>
-
-
-
-<p><a href="http://blog.dekkoshen.com/20150220_buildPelicanBlog.html#disqus_thread">你的評論</a></p>                <a class="button radius secondary small right" href="http://blog.dekkoshen.com/20150220_buildPelicanBlog.html">展開此頁</a>
-                <hr  class="gradient"/>
-            </article>
-
-            <!-- /#posts-list -->
-<div class="pagination-centered">
-<h6 class="subheader"> 第 1 / 1 頁 </h6>
-
-<p>
-
-</p>
-</div>
-
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</article>
 	</div>
 	<!-- End Main Content -->
 
