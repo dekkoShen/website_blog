@@ -50,70 +50,13 @@
         
         
 
-            <article>
-                <a href="http://blog.dekkoshen.com/20150223_pythonSetup.html"><h3 class="article-title">在windows下設定簡單的python編寫環境</h3></a>
+        <article>
+            <a href="http://blog.dekkoshen.com/20150223_pythonSetup.html"><h3 class="article-title">在windows下設定簡單的python編寫環境</h3></a>
 <h6 class="subheader" title="2015-02-23T10:00:00+08:00">2015-02-23, 周一
 </h6>
 
 
-<p>大致可分作兩部分，安裝軟體還有設定python的虛擬環境。</p>
-<hr />
-<h4>1.安裝軟體</h4>
-<p>主要要安裝兩個軟體，第一個當然就是Python，另一個則是編輯器。<br />
-Python的安裝很簡單，到<a href="https://www.python.org">他的官網</a>下載即可。裏頭有分做3.4跟2.7兩種版本，因為我是初學的，就直接選最新的來裝@@。接著來設定python指令的路徑，不然電腦不知道python放哪裡，可以參考此篇<a href="http://pydoing.blogspot.tw/2010/11/python-pathset.html"><em>"Python於MS-Windows的命令列路徑設定"</em></a>。至於編輯器就隨人喜好，有很多可以選像notepad++、sublime、atom還是windows記事本也行(最好不要...)。<a href="http://notepad-plus-plus.org/zh/">notepad++</a>是自由軟體免費又好用，而且作者還是台灣人~~現在最多人推薦<a href="http://www.sublimetext.com/">sublime</a>，介面相當漂亮，這個要70美元，但也是可以一直"試用"啦...他偶爾會跳出購買視窗來。都不另外裝也是可以，因為安裝python他也有附一個。</p>
-<p>我是裝了sublime，在這裡編輯python，只要按</p>
-<div class="highlight"><pre>ctrl + b
-</pre></div>
-
-
-<p>就會自動執行編譯相當方便，他都幫你設定好了。但是"強制停止"則需要自己另外設定，打開sublime上頭"Preferences"的"Key Bindings-User"，加入一行</p>
-<div class="highlight"><pre>{&quot;keys&quot;: [&quot;ctrl+shift+c&quot;], &quot;command&quot;: &quot;exec&quot;, &quot;args&quot;: {&quot;kill&quot;: true} }
-</pre></div>
-
-
-<p>在執行python時，按<code>ctrl+shift+c</code>就即可強制停止。</p>
-<hr />
-<h4>2.設定Python的虛擬環境：virtualenv</h4>
-<p>不同的函數庫有可能會互相干擾，所以建議要設定虛擬環境，讓不同計畫使用不同的函數庫環境。只是我不確定干擾的情況很常發生嗎？是因為定義的名稱相同所造成的？現在我還不清楚。<br />
-在網路上看到的虛擬環境有好幾種，像<a href="https://virtualenv-chinese-docs.readthedocs.org/en/latest/">virtualenv</a>、<a href="http://virtualenvwrapper.readthedocs.org/en/latest/index.html#">virtualenvwrapper</a>、<a href="http://pythonbrew.readthedocs.org/en/latest/">pythonbrew</a>等，其中pythonbrew對windows並不支援。virtualenv只有對單一虛擬環境的管理，譬如創造虛擬環境、進入、退出等，但並沒有對多個不同環境的整合管理，這要virtualenvwrapper才辦得到。一開始我試著裝裝看virtualenvwrapper，但還未成功，最後只先裝了virtualenv...對virtualenvwrapper有興趣可以看看這篇<a href="http://www.asyndetic.com/2012/05/01/virtualenvwrapper-is-for-windows-users-too/"><em>"virtualenvwrapper is for Windows users too"</em></a>的安裝教學。底下virtualenv的使用說明，主要是參考這篇<a href="http://www.openfoundry.org/tw/tech-column/8516-pythons-virtual-environment-and-multi-version-programming-tools-virtualenv-and-pythonbrew"><em>"Python的虛擬環境及多版本開發利器"</em></a>學的。</p>
-<h5>2.1 安裝virtualenv</h5>
-<p>安裝python3時，他已經幫你安裝好了pip。所以接下來要安裝virtualenv，只需輸入</p>
-<div class="highlight"><pre>pip install virtualenv
-</pre></div>
-
-
-<p>即可安裝完畢。</p>
-<h5>2.2 建立虛擬環境</h5>
-<p>因為virtualenv不知道所有虛擬環境的分別位置，所以我是把他們集中在某個資料夾中來集中管理。接下來就來建個虛擬環境試試看，將指令列移動到欲管理的資料夾，輸入</p>
-<div class="highlight"><pre>virtualenv 環境名稱
-</pre></div>
-
-
-<p>這樣就完成了。但如果我希望所有pip套件都必須在虛擬環境下安裝，則可在使用者資料夾中的".bashrc"，裡面多加一行</p>
-<div class="highlight"><pre>export PIP_REQUIRE_VIRTUALENV=true
-</pre></div>
-
-
-<p>避免弄亂原始的python環境。</p>
-<h5>2.3 進入及退出虛擬環境</h5>
-<p>剛建立好環境後，他並不會自動進入，必須在指令列輸入此行才會進入</p>
-<div class="highlight"><pre>source 到環境資料夾的路徑/環境資料夾/Scripts/activate
-</pre></div>
-
-
-<p>假設我建立了"ENV_pelican"環境，如果成功進入的話，他會在每次的輸出後顯示"(ENV_pelican)"，這裡我是使用git bash。至於退出就比較簡單了，輸入</p>
-<div class="highlight"><pre>deactivate
-</pre></div>
-
-
-<p>即可回到原始python環境。</p>
-<p>但如果不是在指令列的環境想要使用某個虛擬環境，可以在py檔裡面加上這段(適用於python3)</p>
-<div class="highlight"><pre>activate_this = r&#39;C:\到環境資料夾的路徑\Scripts\activate_this.py&#39;
-exec(compile(open(activate_this, &quot;rb&quot;).read(), activate_this, &#39;exec&#39;), dict(__file__=activate_this))
-</pre></div>
-
-
-<p>執行時就會自動載入了。</p><p class="subheader">分類: <a href="http://blog.dekkoshen.com/category-cheng-shi.html">程式</a>
+<p>小記一下，在windows環境如何設定python。</p><p class="subheader">分類: <a href="http://blog.dekkoshen.com/category-cheng-shi.html">程式</a>
 
     標籤: 
     <a href="http://blog.dekkoshen.com/tag-python.html">#python </a>
@@ -122,22 +65,19 @@ exec(compile(open(activate_this, &quot;rb&quot;).read(), activate_this, &#39;exe
 
 
 
-<p><a href="http://blog.dekkoshen.com/20150223_pythonSetup.html#disqus_thread">你的評論</a></p>            </article>
-
-
-                <hr  class="gradient"/>
-
+            <a class="button radius secondary small right" href="http://blog.dekkoshen.com/20150223_pythonSetup.html">展開此頁</a>
+            <hr  class="gradient"/>
+        </article>
 
         
 
-
-            <article>
-                <a href="http://blog.dekkoshen.com/20150220_buildPelicanBlog.html"><h3 class="article-title">架pelican blog小記</h3></a>
+        <article>
+            <a href="http://blog.dekkoshen.com/20150220_buildPelicanBlog.html"><h3 class="article-title">架pelican blog小記</h3></a>
 <h6 class="subheader" title="2015-02-20T22:00:00+08:00">2015-02-20, 周五
 </h6>
 
 
-<p>簡單架一個pelican部落格</p><p class="subheader">分類: <a href="http://blog.dekkoshen.com/category-cheng-shi.html">程式</a>
+<p>簡單架設一個pelican部落格</p><p class="subheader">分類: <a href="http://blog.dekkoshen.com/category-cheng-shi.html">程式</a>
 
     標籤: 
     <a href="http://blog.dekkoshen.com/tag-pelican.html">#pelican </a>
@@ -146,20 +86,19 @@ exec(compile(open(activate_this, &quot;rb&quot;).read(), activate_this, &#39;exe
 
 
 
-<p><a href="http://blog.dekkoshen.com/20150220_buildPelicanBlog.html#disqus_thread">你的評論</a></p>                <a class="button radius secondary small right" href="http://blog.dekkoshen.com/20150220_buildPelicanBlog.html">展開此頁</a>
-                <hr  class="gradient"/>
-            </article>
+            <a class="button radius secondary small right" href="http://blog.dekkoshen.com/20150220_buildPelicanBlog.html">展開此頁</a>
+            <hr  class="gradient"/>
+        </article>
 
         
 
-
-            <article>
-                <a href="http://blog.dekkoshen.com/20150219_first.html"><h3 class="article-title">嗨~~第一篇</h3></a>
+        <article>
+            <a href="http://blog.dekkoshen.com/20150219_first.html"><h3 class="article-title">嗨~~第一篇</h3></a>
 <h6 class="subheader" title="2015-02-19T22:00:00+08:00">2015-02-19, 周四
 </h6>
 
 
-<p>嗯嗯嗯...第一篇!!!恭喜恭喜~</p><p class="subheader">分類: <a href="http://blog.dekkoshen.com/category-sheng-huo-ji-shi.html">生活記事</a>
+<p>第一篇!!!恭喜恭喜~</p><p class="subheader">分類: <a href="http://blog.dekkoshen.com/category-sheng-huo-ji-shi.html">生活記事</a>
 
     標籤: 
     <a href="http://blog.dekkoshen.com/tag-zhao-pian.html">#照片 </a>
@@ -167,9 +106,9 @@ exec(compile(open(activate_this, &quot;rb&quot;).read(), activate_this, &#39;exe
 
 
 
-<p><a href="http://blog.dekkoshen.com/20150219_first.html#disqus_thread">你的評論</a></p>                <a class="button radius secondary small right" href="http://blog.dekkoshen.com/20150219_first.html">展開此頁</a>
-                <hr  class="gradient"/>
-            </article>
+            <a class="button radius secondary small right" href="http://blog.dekkoshen.com/20150219_first.html">展開此頁</a>
+            <hr  class="gradient"/>
+        </article>
 
             <!-- /#posts-list -->
 <div class="pagination-centered">
