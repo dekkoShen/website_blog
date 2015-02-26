@@ -3,7 +3,7 @@
 &lt;hr /&gt;
 &lt;h4&gt;1.安裝軟體&lt;/h4&gt;
 &lt;p&gt;主要要安裝兩個軟體，第一個當然就是Python，另一個則是編輯器。&lt;br /&gt;
-Python的安裝很簡單，到&lt;a href="https://www.python.org"&gt;他的官網&lt;/a&gt;下載即可。裏頭有分做3.4跟2.7兩種版本，因為我是初學的，就直接選最新的來裝@@。接著來設定python指令的路徑，不然電腦不知道python放哪裡，可以參考此篇&lt;a href="http://pydoing.blogspot.tw/2010/11/python-pathset.html"&gt;&lt;em&gt;"Python於MS-Windows的命令列路徑設定"&lt;/em&gt;&lt;/a&gt;。至於編輯器就隨人喜好，有很多可以選像notepad++、sublime、atom還是windows記事本也行(最好不要...)。&lt;a href="http://notepad-plus-plus.org/zh/"&gt;notepad++&lt;/a&gt;是自由軟體免費又好用，而且作者還是台灣人~~現在最多人推薦&lt;a href="http://www.sublimetext.com/"&gt;sublime&lt;/a&gt;，介面相當漂亮，這個要70美元，但也是可以一直"試用"啦...他偶爾會跳出購買視窗來。都不另外裝也是可以，因為安裝python他也有附一個。&lt;/p&gt;
+Python的安裝很簡單，到&lt;a href="https://www.python.org"&gt;他的官網&lt;/a&gt;下載即可。裏頭有分做3.4跟2.7兩種版本，因為我是初學的，就直接選最新的來裝@@。但也可以兩個都裝，之後再由虛擬環境來選擇用哪一個來跑就好了。接著來設定python指令的路徑，不然電腦不知道python放哪裡，可以參考此篇&lt;a href="http://pydoing.blogspot.tw/2010/11/python-pathset.html"&gt;&lt;em&gt;"Python於MS-Windows的命令列路徑設定"&lt;/em&gt;&lt;/a&gt;。至於編輯器就隨人喜好，有很多可以選像notepad++、sublime、atom還是windows記事本也行(最好不要...)。&lt;a href="http://notepad-plus-plus.org/zh/"&gt;notepad++&lt;/a&gt;是自由軟體免費又好用，而且作者還是台灣人~~現在最多人推薦&lt;a href="http://www.sublimetext.com/"&gt;sublime&lt;/a&gt;，介面相當漂亮，這個要70美元，但也是可以一直"試用"啦...他偶爾會跳出購買視窗來。都不另外裝也是可以，因為安裝python他也有附一個。&lt;/p&gt;
 &lt;p&gt;我是裝了sublime，在這裡編輯python，只要按&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;ctrl + b
 &lt;/pre&gt;&lt;/div&gt;
@@ -32,12 +32,17 @@ Python的安裝很簡單，到&lt;a href="https://www.python.org"&gt;他的官�
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;這樣就完成了。但如果我希望所有pip套件都必須在虛擬環境下安裝，則可在使用者資料夾中的".bashrc"，裡面多加一行&lt;/p&gt;
+&lt;p&gt;這樣就完成了。假設我裝了python3.4跟python2.7，但我想用python2.7來跑，可以多設一個虛擬環境指定用python2.7的執行檔，設定如下(假設我的執行檔放在C:\Python27裏面)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;virtualenv -p /c/Python27/python.exe pyhton27的環境名稱
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;接下來如果我希望所有pip套件都必須在虛擬環境下安裝，則可在使用者資料夾中的".bashrc"多加一行&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;export PIP_REQUIRE_VIRTUALENV=true
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;避免弄亂原始的python環境。&lt;/p&gt;
+&lt;p&gt;避免弄亂原始的python環境。 &lt;/p&gt;
 &lt;h5&gt;2.3 進入及退出虛擬環境&lt;/h5&gt;
 &lt;p&gt;剛建立好環境後，他並不會自動進入，必須在指令列輸入此行才會進入&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;source 到環境資料夾的路徑/環境資料夾/Scripts/activate
